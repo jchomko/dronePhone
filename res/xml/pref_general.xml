@@ -1,0 +1,62 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+
+    <!-- NOTE: EditTextPreference accepts EditText attributes. -->
+    <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
+    
+     <EditTextPreference 
+        android:defaultValue="@string/pref_default_target_ip"
+        android:inputType="phone"
+        android:key="target_ip_address"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_target_ip"
+       />
+    
+    <EditTextPreference 
+        android:defaultValue="@string/pref_default_target_port_image"
+        android:inputType="number"
+        android:key="target_port_image"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_target_port_image"
+        
+        />
+    
+    <EditTextPreference 
+        android:defaultValue="@string/pref_default_target_port_command"
+        android:inputType="number"
+        android:key="target_port_command"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_target_port_command"
+        
+        />
+	
+    <EditTextPreference 
+        android:defaultValue="@string/pref_default_target_port_data"
+        android:inputType="number"
+        android:key="target_port_data"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_target_port_data"
+        
+        />
+    
+     <EditTextPreference 
+        android:defaultValue="@string/pref_default_photo_interval"
+        android:inputType="number"
+        android:key="photo_interval"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_photo_interval"
+        
+        />
+   
+</PreferenceScreen>

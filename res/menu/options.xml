@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:title="@string/picture_button" android:id="@+id/camera" android:icon="@drawable/ic_menu_camera" android:showAsAction="ifRoom"></item>
+  <item android:id="@+id/settings" android:title="@string/settings_button" android:showAsAction="ifRoom"></item>
+  
+</menu>

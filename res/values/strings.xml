@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">dronePhone</string>
+    <string name="capture_string">Start Stream</string>
+    <string name="title_activity_send">SendActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="framerate">0</string>
+    <string name="title_activity_server">ServerActivity</string>
+    <string name="title_activity_sensor">SensorActivity</string>
+    <string name="picture_button">Take Picture</string>
+    <string name="settings_button">Settings</string>
+
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.commonsware.android.picture"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="17" />
+
+    <supports-screens
+        android:largeScreens="false"
+        android:normalScreens="true"
+        android:smallScreens="false"
+        android:xlargeScreens="true" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.back"
+        android:required="false" />
+     <uses-feature android:name="android.hardware.camera.flash" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.FLASHLIGHT"
+          			android:permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+    				android:protectionLevel="normal" />
+
+    <application
+        android:icon="@drawable/cw"
+        android:label="@string/app_name" 
+        android:allowBackup="true"
+        
+        >
+		        
+        <activity
+            android:name="com.chomko.android.dronePhone.phoneDroneActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:persistent="true"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        
+        </activity>
+        <activity
+            android:name="com.chomko.android.dronePhone.SendActivity"
+            android:label="@string/title_activity_send" >
+        </activity>
+        <activity
+            android:name="com.chomko.android.dronePhone.ServerActivity"
+            android:label="@string/title_activity_server" >
+        </activity>
+        <activity
+            android:name="com.chomko.android.dronePhone.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+         <activity
+            android:name="com.chomko.android.dronePhone.SensorActivity"
+            android:label="@string/title_activity_sensor" >
+        </activity>
+    </application>
+
+</manifest>
