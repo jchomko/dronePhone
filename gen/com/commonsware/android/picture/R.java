@@ -30,7 +30,8 @@ public final class R {
     }
     public static final class drawable {
         public static final int cw=0x7f020000;
-        public static final int ic_menu_camera=0x7f020001;
+        public static final int drone=0x7f020001;
+        public static final int ic_menu_camera=0x7f020002;
     }
     public static final class id {
         public static final int camera=0x7f0a0001;
@@ -53,43 +54,45 @@ public final class R {
         public static final int framerate=0x7f070005;
         public static final int hello_world=0x7f070004;
         public static final int picture_button=0x7f070008;
-        public static final int pref_default_display_name=0x7f07000f;
-        public static final int pref_default_photo_interval=0x7f070023;
-        public static final int pref_default_target_ip=0x7f070019;
-        public static final int pref_default_target_port_command=0x7f07001d;
-        public static final int pref_default_target_port_data=0x7f07001f;
-        public static final int pref_default_target_port_image=0x7f07001b;
-        public static final int pref_description_social_recommendations=0x7f07000d;
+        public static final int pref_default_display_name=0x7f070011;
+        public static final int pref_default_photo_interval=0x7f070025;
+        public static final int pref_default_target_ip=0x7f07001b;
+        public static final int pref_default_target_port_command=0x7f07001f;
+        public static final int pref_default_target_port_data=0x7f070021;
+        public static final int pref_default_target_port_image=0x7f07001d;
+        public static final int pref_description_social_recommendations=0x7f07000f;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f070011;
+        public static final int pref_header_data_sync=0x7f070013;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f07000b;
+        public static final int pref_header_general=0x7f07000d;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f070014;
-        public static final int pref_ringtone_silent=0x7f070017;
-        public static final int pref_title_add_friends_to_messages=0x7f070010;
-        public static final int pref_title_camera_imgsize=0x7f070021;
-        public static final int pref_title_display_name=0x7f07000e;
-        public static final int pref_title_new_message_notifications=0x7f070015;
-        public static final int pref_title_photo_interval=0x7f070022;
-        public static final int pref_title_ringtone=0x7f070016;
-        public static final int pref_title_social_recommendations=0x7f07000c;
-        public static final int pref_title_sync_frequency=0x7f070012;
-        public static final int pref_title_system_sync_settings=0x7f070013;
-        public static final int pref_title_target_ip=0x7f07001a;
-        public static final int pref_title_target_port_command=0x7f07001e;
-        public static final int pref_title_target_port_data=0x7f070020;
-        public static final int pref_title_target_port_image=0x7f07001c;
-        public static final int pref_title_vibrate=0x7f070018;
+        public static final int pref_header_notifications=0x7f070016;
+        public static final int pref_ringtone_silent=0x7f070019;
+        public static final int pref_title_add_friends_to_messages=0x7f070012;
+        public static final int pref_title_camera_imgsize=0x7f070023;
+        public static final int pref_title_display_name=0x7f070010;
+        public static final int pref_title_new_message_notifications=0x7f070017;
+        public static final int pref_title_photo_interval=0x7f070024;
+        public static final int pref_title_ringtone=0x7f070018;
+        public static final int pref_title_social_recommendations=0x7f07000e;
+        public static final int pref_title_sync_frequency=0x7f070014;
+        public static final int pref_title_system_sync_settings=0x7f070015;
+        public static final int pref_title_target_ip=0x7f07001c;
+        public static final int pref_title_target_port_command=0x7f070020;
+        public static final int pref_title_target_port_data=0x7f070022;
+        public static final int pref_title_target_port_image=0x7f07001e;
+        public static final int pref_title_vibrate=0x7f07001a;
         public static final int settings_button=0x7f070009;
         public static final int title_activity_send=0x7f070002;
         public static final int title_activity_sensor=0x7f070007;
         public static final int title_activity_server=0x7f070006;
-        public static final int title_activity_settings=0x7f07000a;
+        public static final int title_activity_settings=0x7f07000c;
+        public static final int toggle_command_listen=0x7f07000a;
+        public static final int toggle_data_send=0x7f07000b;
     }
     public static final class xml {
         public static final int pref_data_camera=0x7f040000;

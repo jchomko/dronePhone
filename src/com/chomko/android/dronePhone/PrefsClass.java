@@ -76,5 +76,19 @@ public Integer getPhotoInterval(){
 	return(photoInterval);
 	
 }
+
+public Boolean getCommandListen(){
+	
+	boolean commandListen = prefs.getBoolean("toggle_command_listen", false);
+	return(commandListen);
+	
+}
+
+public Boolean getSendDataToggle(){
+	
+	boolean dataToggle = prefs.getBoolean("toggle_data_send", false);
+	return(dataToggle);
+	
+}
 	
 }

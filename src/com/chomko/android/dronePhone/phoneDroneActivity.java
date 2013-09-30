@@ -1,4 +1,4 @@
-/***
+/*
   Copyright (c) 2008-2012 CommonsWare, LLC
   Licensed under the Apache License, Version 2.0 (the "License"); you may not
   use this file except in compliance with the License. You may obtain a copy
@@ -76,8 +76,6 @@ public class phoneDroneActivity extends Activity {
     previewHolder.addCallback(surfaceCallback);
     previewHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     
-   
-    
     messageHandler = new Handler(Looper.getMainLooper()) {
     	
         /*
@@ -124,27 +122,39 @@ public class phoneDroneActivity extends Activity {
 			  (LocationManager) this.getSystemService(Context.LOCATION_SERVICE));
     preferences = new PrefsClass(PreferenceManager.getDefaultSharedPreferences(getBaseContext()));
     
-    
     threadedImageTask = new ThreadedImageTask(preferences.getServerName(), preferences.getImagePort());
-   	threadedImageTask.start();
+    threadedImageTask.start();
    	
     threadedCompressionTask = new ThreadedCompressionTask(threadedImageTask);
     threadedCompressionTask.start();
     
-    threadedDataTask = new ThreadedDataTask(preferences.getServerName(), preferences.getDataPort());
-    threadedDataTask.start();
+	threadedDataTask = new ThreadedDataTask(preferences.getServerName(), preferences.getDataPort());
+    if(preferences.getSendDataToggle()){
     
+    	threadedDataTask.start();
+        threadedDataTask.open();
+    }
+
     cam = new CameraClass(previewHolder, threadedImageTask);
     
-   
     timerHandler = new Handler();
+    
     photoInterval = preferences.getPhotoInterval();
     timerHandler.postDelayed(runnableTakePicture, photoInterval);
     
- 	
-    threadedCommandTask = new ThreadedCommandTask(preferences.getServerName(), preferences.getCommandPort(), messageHandler); 
-    threadedCommandTask.start();
+    threadedCommandTask = new ThreadedCommandTask(preferences.getServerName(), preferences.getCommandPort(), messageHandler); //commandPort
+    if(preferences.getCommandListen()){
+    	
+    	threadedCommandTask.start();
+    	threadedCommandTask.open();
     
+    }
+    
+    
+   
+    
+
+   
   }
 
   @Override
@@ -160,17 +170,30 @@ public class phoneDroneActivity extends Activity {
     threadedCompressionTask = new ThreadedCompressionTask(threadedImageTask);
     threadedCompressionTask.start();
    	
-    threadedCommandTask = new ThreadedCommandTask(preferences.getServerName(), preferences.getCommandPort(), messageHandler); //commandPort
-    threadedCommandTask.start();
+   
+    if(preferences.getCommandListen() == true){
+    	threadedCommandTask = new ThreadedCommandTask(preferences.getServerName(), preferences.getCommandPort(), messageHandler); //commandPort
+    	threadedCommandTask.start();
+    	threadedCommandTask.open();
+    }else if(preferences.getCommandListen() == false && threadedCommandTask.isAlive()){
+    	threadedCommandTask.close();
+    }
     
     photoInterval = preferences.getPhotoInterval();
     timerHandler.postDelayed(runnableTakePicture, photoInterval);
     
-    threadedDataTask = new ThreadedDataTask(preferences.getServerName(), preferences.getDataPort());
-    threadedDataTask.start();
-    
    
-    
+    if(preferences.getSendDataToggle() == true){
+    	threadedDataTask = new ThreadedDataTask(preferences.getServerName(), preferences.getDataPort());
+    	threadedDataTask.start();
+        threadedDataTask.open();
+    }else if(preferences.getSendDataToggle() == false && threadedDataTask.isAlive()){
+    		threadedDataTask.close();
+    	
+    	
+    }
+
+   
     //Resume Sensors
     sensors.resume();
     
@@ -190,10 +213,17 @@ public class phoneDroneActivity extends Activity {
 	
 	
 	//Close threads
-	threadedDataTask.close();
+	if(preferences.getSendDataToggle() == true){
+		threadedDataTask.close();
+	}
+	
 	threadedCompressionTask.close();
     threadedImageTask.close();
-    threadedCommandTask.close();
+    
+    if(preferences.getCommandListen()  == true){
+    	threadedCommandTask.close();
+    }
+  
     
     
     //Pause Sensors
@@ -277,7 +307,10 @@ public class phoneDroneActivity extends Activity {
 	public void run() {
 		
 			cam.takePicture();
-			threadedDataTask.addData(sensors.getSensorData());
+			
+			if(threadedDataTask.isAlive()){
+				threadedDataTask.addData(sensors.getSensorData());
+			}
 			
 			timerHandler.postDelayed(this, photoInterval);
 			Log.w("location",sensors.getSensorData());

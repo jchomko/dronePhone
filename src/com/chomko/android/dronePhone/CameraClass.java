@@ -18,7 +18,6 @@ public class CameraClass {
 	  private boolean inPreview=false;
 	  private boolean cameraConfigured=false;
 	  private boolean flash = false;
-	 
 	  private ThreadedImageTask threadedImageTask;
 	  
 	  CameraClass(SurfaceHolder _previewHolder, ThreadedImageTask _threadedImageTask){
@@ -57,11 +56,13 @@ public class CameraClass {
 		  //Release camera and preview callback
 		if (inPreview) {
 	      camera.stopPreview();
+	     
 	    }
+		inPreview=false;
 	    camera.setPreviewCallback(null);
 	    camera.release();
 	    camera=null;
-	    inPreview=false;
+	    
 	    
 	  
 		  
@@ -120,7 +121,8 @@ public class CameraClass {
 		      
 		      camera.startPreview();
 		      inPreview=true;
-		     }
+		      
+		    }
 	  }
 	  
 	  private Camera.Size getBestPreviewSize(int width, int height,Camera.Parameters parameters) {
@@ -190,6 +192,7 @@ public class CameraClass {
 			 
 			  return(result);
 		  }
+		
 		  
 
 		public void toggleFlash(){
@@ -223,11 +226,12 @@ public class CameraClass {
 		  
 		  
 		  
-		  Camera.PictureCallback photoCallback=new Camera.PictureCallback() {
+		 Camera.PictureCallback photoCallback=new Camera.PictureCallback() {
 		    public void onPictureTaken(byte[] data, Camera camera) {
 		      //new SavePhotoTask().execute(data);
 		      
 		      //Photo requires no conversion, add directly to image queue
+		    	
 		      Log.w("picsizes", Integer.toString(data.length));
 		      threadedImageTask.addImage(data);    
 		      

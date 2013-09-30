@@ -11,5 +11,7 @@
     <string name="title_activity_sensor">SensorActivity</string>
     <string name="picture_button">Take Picture</string>
     <string name="settings_button">Settings</string>
+    <string name="toggle_command_listen">Check for Commands?</string>
+    <string name="toggle_data_send">Send Sensor Data?</string>
 
 </resources>

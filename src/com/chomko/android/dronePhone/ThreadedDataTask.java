@@ -37,7 +37,7 @@ public class ThreadedDataTask extends Thread {
 	
 	public void run(){
 		
-		running = true;
+		//running = true;
 		while(running && messageNew){
 			// do everything in here
 		
@@ -50,11 +50,11 @@ public class ThreadedDataTask extends Thread {
 					client.setSoTimeout(10000);
 					//Create output stream
 					OutputStream outToServer = client.getOutputStream();
-				
 					DataOutputStream out  = new DataOutputStream(outToServer);
 					
 					out.writeUTF(outputMessage);
 					out.close();
+					
 					messageNew = false;
 					isConnected = true;
 				//}
@@ -74,9 +74,13 @@ public class ThreadedDataTask extends Thread {
 		running = false;
 	}
 	
-//	public boolean checkConnection(){
-//		return(isConnected);
-//	}
+	public void open(){
+		running = true;
+	}
+	
+	public boolean checkConnection(){
+		return(isConnected);
+	}
 	
 	/**
 	 * Add new data to be sent to the server

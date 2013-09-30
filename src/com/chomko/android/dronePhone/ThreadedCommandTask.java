@@ -43,7 +43,7 @@ class ThreadedCommandTask extends Thread{
 	
 	public void run(){
 		
-		running = true;
+		//running = true;
 		while(running){
 			// do everything in here
 			
@@ -52,7 +52,7 @@ class ThreadedCommandTask extends Thread{
 				    
 					//Log.w("server_message", "ready to connect to server");
 					Socket client = new Socket(serverName, port);
-					client.setSoTimeout(1000);
+					client.setSoTimeout(10000);
 					
 					//Log.w("server_message", "connected to server");
 					

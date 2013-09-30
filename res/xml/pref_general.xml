@@ -26,6 +26,13 @@
         
         />
     
+     <CheckBoxPreference
+        android:defaultValue="false"
+      	android:key="toggle_command_listen"
+        android:title="@string/toggle_command_listen" 
+        
+       />
+     
     <EditTextPreference 
         android:defaultValue="@string/pref_default_target_port_command"
         android:inputType="number"
@@ -37,6 +44,12 @@
         
         />
 	
+     <CheckBoxPreference
+        android:defaultValue="false"
+      	android:key="toggle_data_send"
+        android:title="@string/toggle_data_send" 
+     />
+    
     <EditTextPreference 
         android:defaultValue="@string/pref_default_target_port_data"
         android:inputType="number"

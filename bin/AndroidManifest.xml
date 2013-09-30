@@ -29,7 +29,7 @@
     				android:protectionLevel="normal" />
 
     <application
-        android:icon="@drawable/cw"
+        android:icon="@drawable/drone"
         android:label="@string/app_name" 
         android:allowBackup="true"
         
